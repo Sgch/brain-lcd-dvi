@@ -1,0 +1,10 @@
+build/
+
+rtl/ip/*/*
+!rtl/ip/*/*.xci
+
+sim/xilinxlib
+sim/work
+sim/vsim.wlf
+sim/modelsim.ini
+sim/transcript

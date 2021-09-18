@@ -1,0 +1,14 @@
+../rtl/top.v
+../rtl/sync_reset_gen.v
+../rtl/synchronizer.v
+../rtl/vga_sync_gen.v
+../rtl/framebuffer/framebuffer.v
+../rtl/framebuffer/framebuffer_reader.v
+../rtl/framebuffer/framebuffer_writer.v
+../rtl/lcd_rx/lcd_rx.v
+../rtl/lcd_rx/lcd_rx_if.v
+../rtl/ip/clk_video/clk_video_sim_netlist.v
+../rtl/ip/blk_mem_framebuffer/blk_mem_framebuffer_sim_netlist.v
+testbench/tb_top.v
+testbench/tb_brain_lcd.v
+testbench/mock_rgb2dvi.v

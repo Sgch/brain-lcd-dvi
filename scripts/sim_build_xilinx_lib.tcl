@@ -1,0 +1,1 @@
+compile_simlib -simulator modelsim -family zynq -library unisim -verbose
