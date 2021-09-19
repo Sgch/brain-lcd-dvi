@@ -23,7 +23,7 @@ module lcd_rx (
     reg lcd_wr_1d;
     reg lcd_rs_1d;
     reg lcd_cs_n_1d;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             lcd_wr_1d   <= 1'b1;
             lcd_rs_1d   <= 1'b1;
@@ -61,7 +61,7 @@ module lcd_rx (
     assign rgb565_latch  = pedge_wr &  lcd_rs_1d & ~lcd_cs_n_1d &  command_2c;
 
     // latch command
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_lcd_rst_n || !i_rst_n) begin
             lcd_command <= 8'h00;
         end
@@ -77,7 +77,7 @@ module lcd_rx (
 
     // latch param
     reg  [ 7: 0] lcd_param;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_lcd_rst_n || !i_rst_n) begin
             lcd_param <= 8'h00;
         end
@@ -93,7 +93,7 @@ module lcd_rx (
 
     // latch rgb565
     reg [15: 0] lcd_rgb565;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_lcd_rst_n || !i_rst_n) begin
             lcd_rgb565 <= 16'h0000;
         end
@@ -109,7 +109,7 @@ module lcd_rx (
 
     // delay command_latch
     reg command_latch_1d;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_lcd_rst_n || !i_rst_n) begin
             command_latch_1d <= 1'b0;
         end
@@ -120,7 +120,7 @@ module lcd_rx (
 
     // delay param_latch_1d
     reg param_latch_1d;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_lcd_rst_n || !i_rst_n) begin
             param_latch_1d <= 1'b0;
         end
@@ -131,7 +131,7 @@ module lcd_rx (
 
     // delay rgb565_latch_1d
     reg rgb565_latch_1d;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_lcd_rst_n || !i_rst_n) begin
             rgb565_latch_1d <= 1'b0;
         end

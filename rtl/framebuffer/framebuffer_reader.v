@@ -23,7 +23,7 @@ module framebuffer_reader (
     // nedge hblank
     wire nedge_hblank;
     reg  hblank_1d;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             hblank_1d <= 1'b0;
         end
@@ -36,7 +36,7 @@ module framebuffer_reader (
     // nedge vblank
     wire nedge_vblank;
     reg  vblank_1d;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             vblank_1d <= 1'b0;
         end
@@ -48,7 +48,7 @@ module framebuffer_reader (
 
     // internal h count
     reg [10: 0] h_count;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             h_count <= 11'd0;
         end
@@ -69,7 +69,7 @@ module framebuffer_reader (
     
     // internal v count
     reg [9: 0] v_count;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             v_count <= 10'd0;
         end
@@ -98,7 +98,7 @@ module framebuffer_reader (
 
     // read address
     reg [17 :0] read_addr;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             read_addr <= 18'd0;
         end
@@ -122,7 +122,7 @@ module framebuffer_reader (
 
     // delayed hsync
     reg [1:0] hsync_deleayed;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             hsync_deleayed <= 2'b11;
         end
@@ -133,7 +133,7 @@ module framebuffer_reader (
 
     // delayed vsync
     reg [1:0] vsync_deleayed;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             vsync_deleayed <= 2'b11;
         end
@@ -144,7 +144,7 @@ module framebuffer_reader (
 
     // delayed vde
     reg [1:0] vde_deleayed;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             vde_deleayed <= 2'b00;
         end

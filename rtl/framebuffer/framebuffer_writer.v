@@ -22,7 +22,7 @@ module framebuffer_writer (
 
     // delayed latch
     reg [5:0] rgb565_latch_delay;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             rgb565_latch_delay <= 6'd0;
         end
@@ -35,7 +35,7 @@ module framebuffer_writer (
 
     // write address
     reg [17: 0] write_addr;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             write_addr <= 18'd0;
         end
@@ -56,7 +56,7 @@ module framebuffer_writer (
 
     // data delay
     reg [15: 0] rgb565_delayed;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             rgb565_delayed <= 16'h0000;
         end

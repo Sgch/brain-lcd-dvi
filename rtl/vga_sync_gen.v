@@ -32,7 +32,7 @@ module vga_sync_gen #(
 
     // h count
     reg [11: 0] h_count;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             h_count <= 11'd0;
         end
@@ -48,7 +48,7 @@ module vga_sync_gen #(
 
     // v count
     reg [11: 0] v_count;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             v_count <= 11'd0;
         end
@@ -69,7 +69,7 @@ module vga_sync_gen #(
     
     // hblank
     reg hblank;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             hblank <= 1'b0;
         end
@@ -80,7 +80,7 @@ module vga_sync_gen #(
 
     // vblank
     reg vblank;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             vblank <= 1'b0;
         end
@@ -91,7 +91,7 @@ module vga_sync_gen #(
 
     // vden
     reg vden;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             vden <= 1'b0;
         end
@@ -102,7 +102,7 @@ module vga_sync_gen #(
 
     // hsync
     reg hsync;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             hsync <= 1'b0 ^ H_SYNC_INV;
         end
@@ -113,7 +113,7 @@ module vga_sync_gen #(
 
     // vsync
     reg vsync;
-    always @(posedge i_clk or negedge i_rst_n) begin
+    always @(posedge i_clk) begin
         if (!i_rst_n) begin
             vsync <= 1'b0 ^ H_SYNC_INV;
         end
